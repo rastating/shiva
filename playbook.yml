@@ -1,0 +1,9 @@
+---
+- name: Shiva
+  hosts: all
+
+  roles:
+    - common
+    - exploitation
+    - mobile
+    - web

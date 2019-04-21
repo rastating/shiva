@@ -1,0 +1,39 @@
+---
+- name: 'shell : install oh-my-zsh'
+  git:
+    accept_hostkey: yes
+    clone: yes
+    depth: 1
+    dest: /root/.oh-my-zsh
+    force: yes
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+
+- name: 'shell : set permissions on oh-my-zsh directory'
+  file:
+    mode: 0755
+    path: /root/.oh-my-zsh
+    recurse: yes
+    state: directory
+
+- name: 'shell : create .zshrc'
+  copy:
+    dest: /root/.zshrc
+    remote_src: yes
+    src: /root/.oh-my-zsh/templates/zshrc.zsh-template
+
+- name: 'shell : setup ZSH environment variable'
+  lineinfile:
+    path: /root/.zshrc
+    regexp: export ZSH=
+    line: export ZSH=/root/.oh-my-zsh
+
+- name: 'shell : setup bira theme'
+  lineinfile:
+    path: /root/.zshrc
+    regexp: ZSH_THEME="robbyrussell"
+    line: ZSH_THEME="bira"
+
+- name: 'shell : set default root shell'
+  user:
+    name: root
+    shell: /bin/zsh

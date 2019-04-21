@@ -1,0 +1,2 @@
+---
+- include: dirb.yml tags=dirb

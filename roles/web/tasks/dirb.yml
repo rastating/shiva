@@ -1,0 +1,57 @@
+---
+- name: 'dirb : download and verify archive'
+  get_url:
+    url: https://netix.dl.sourceforge.net/project/dirb/dirb/2.22/dirb222.tar.gz
+    dest: /tmp/dirb.tar.gz
+    checksum: sha256:f3748ade231ca211a01acbec31cc6a3b576f6c56c906d73329d7dbb79f60fc2c
+
+- name: 'dirb : extract archive'
+  unarchive:
+    dest: /tmp
+    remote_src: yes
+    src: /tmp/dirb.tar.gz
+
+- name: 'dirb : make configure executable'
+  file:
+    mode: 0775
+    path: /tmp/dirb222/configure
+    state: file
+
+- name: 'dirb : configure'
+  command: /tmp/dirb222/configure
+  args:
+    chdir: /tmp/dirb222
+
+- name: 'dirb : build and install'
+  make:
+    chdir: /tmp/dirb222
+    target: install
+
+- name: 'dirb : create wordlist directories'
+  file:
+    mode: 0755
+    path: '{{ item }}'
+    state: directory
+  with_items:
+    - /usr/share/wordlists
+    - /usr/share/dirb
+
+- name: 'dirb : copy wordlists'
+  synchronize:
+    dest: /usr/share/dirb
+    src: /tmp/dirb222/wordlists
+  delegate_to: '{{ inventory_hostname }}'
+
+- name: 'dirb : add symlink from common wordlists directory'
+  file:
+    dest: /usr/share/wordlists/dirb
+    src: /usr/share/dirb/wordlists
+    state: link
+
+- name: 'dirb : cleanup build fragments'
+  file:
+    dest: '{{ item }}'
+    state: absent
+  with_items:
+    - /tmp/dirb.tar.gz
+    - /tmp/dirb222

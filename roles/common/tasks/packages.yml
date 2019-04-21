@@ -1,0 +1,29 @@
+---
+- name: 'packages : update apt cache'
+  apt:
+    update_cache: yes
+
+- name: 'packages : install common packages'
+  apt:
+    name:
+      - build-essential
+      - curl
+      - git
+      - libcurl4-openssl-dev
+      - nano
+      - python
+      - python-pip
+      - python-setuptools
+      - python3
+      - python3-pip
+      - python3-setuptools
+      - tar
+      - ufw
+      - unzip
+      - vim
+      - zip
+      - zsh
+
+- name: 'packages : install common Python modules'
+  pip:
+    name: pyopenssl

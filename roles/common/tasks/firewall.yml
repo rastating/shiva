@@ -1,0 +1,18 @@
+---
+- name: 'firewall : install ufw'
+  apt:
+    name: ufw
+    state: present
+
+- name: 'firewall : deny all incoming traffic'
+  ufw:
+    state: enabled
+    direction: incoming
+    policy: deny
+
+- name: 'firewall : expose port 22 to {{ trusted_ssh_ip }}'
+  ufw:
+    from_ip: '{{ trusted_ssh_ip }}'
+    rule: allow
+    port: 22
+    proto: tcp

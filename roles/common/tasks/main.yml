@@ -1,0 +1,4 @@
+---
+- include: packages.yml tags=common
+- include: firewall.yml tags=networking
+- include: shell.yml tags=shell
