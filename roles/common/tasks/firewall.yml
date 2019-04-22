@@ -17,4 +17,6 @@
       rule: allow
       port: 22
       proto: tcp
-  tags: firewall
+  tags:
+    - common
+    - firewall
