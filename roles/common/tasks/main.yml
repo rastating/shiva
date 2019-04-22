@@ -2,3 +2,17 @@
 - include: packages.yml tags=common
 - include: firewall.yml tags=networking
 - include: shell.yml tags=shell
+- include: packages.yml
+  tags:
+    - common
+    - packages
+
+- include: firewall.yml
+  tags:
+    - common
+    - networking
+
+- include: shell.yml
+  tags:
+    - common
+    - shell

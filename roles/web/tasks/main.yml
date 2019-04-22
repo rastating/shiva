@@ -1,2 +1,5 @@
 ---
-- include: dirb.yml tags=dirb
+- include: dirb.yml
+  tags:
+    - web
+    - dirb
