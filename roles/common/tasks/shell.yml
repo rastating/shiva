@@ -34,6 +34,27 @@
       regexp: ZSH_THEME="robbyrussell"
       line: ZSH_THEME="bira"
 
+  - name: 'shell : enable package suggestions'
+    lineinfile:
+      path: /root/.zshrc
+      line: source /etc/zsh_command_not_found
+
+  - name: 'shell : copy dircolors configuration'
+    template:
+      dest: /root/.dircolors
+      mode: 0644
+      src: ../templates/dircolors.conf
+
+  - name: 'shell : add dircolors initialisation'
+    lineinfile:
+      path: /root/.zshrc
+      line: 'eval "$(dircolors ~/.dircolors)"'
+
+  - name: 'shell : add alias for python http server'
+    lineinfile:
+      path: /root/.zshrc
+      line: 'alias serve-this="python -m SimpleHTTPServer"'
+
   - name: 'shell : set default root shell'
     user:
       name: root

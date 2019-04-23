@@ -9,6 +9,7 @@
       name:
         - build-essential
         - curl
+        - dircolors
         - git
         - libcurl4-openssl-dev
         - nano
