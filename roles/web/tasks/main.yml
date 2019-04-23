@@ -3,3 +3,5 @@
   tags:
     - web
     - dirb
+
+- include: gobuster.yml tags=web,gobuster

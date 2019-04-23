@@ -1,0 +1,39 @@
+---
+- block:
+  - name: 'gobuster : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /tmp/gobuster
+      force: yes
+      repo: https://github.com/OJ/gobuster.git
+
+  - name: 'gobuster : exec go get'
+    shell: '/bin/bash -lc "/usr/local/go/bin/go get"'
+    args:
+      chdir: /tmp/gobuster
+
+  - name: 'gobuster : exec go build'
+    shell: '/bin/bash -lc "/usr/local/go/bin/go build"'
+    args:
+      chdir: /tmp/gobuster
+
+  - name: 'gobuster : install'
+    copy:
+      dest: /usr/local/bin/gobuster
+      mode: 0775
+      remote_src: yes
+      src: /tmp/gobuster/gobuster
+
+  - name: 'gobuster : cleanup build fragments'
+    file:
+      dest: '{{ item }}'
+      state: absent
+    with_items:
+      - /tmp/gobuster
+      - /root/.go/bin/gobuster
+
+  tags:
+    - web
+    - gobuster
