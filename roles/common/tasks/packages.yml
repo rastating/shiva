@@ -9,8 +9,8 @@
       name:
         - build-essential
         - curl
-        - dircolors
         - git
+        - gnupg2
         - libcurl4-openssl-dev
         - nano
         - nmap
@@ -22,12 +22,14 @@
         - python3-pip
         - python3-setuptools
         - socat
+        - software-properties-common
         - tar
         - ufw
         - unzip
         - vim
         - zip
         - zsh
+      state: present
 
   - name: 'packages : install common Python modules'
     pip:

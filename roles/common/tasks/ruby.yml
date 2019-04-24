@@ -1,0 +1,20 @@
+---
+- block:
+
+  - name: 'ruby : add rvm repository'
+    apt_repository:
+      repo: 'ppa:rael-gc/rvm'
+      state: present
+      update_cache: yes
+
+  - name: 'ruby : install rvm'
+    apt:
+      name: rvm
+      state: present
+
+  - name: 'ruby : install default ruby'
+    shell: '/bin/bash -lc "rvm install ruby"'
+
+  tags:
+    - common
+    - ruby
