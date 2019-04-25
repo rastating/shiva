@@ -1,0 +1,21 @@
+---
+  - block:
+
+    - name: 'postgres : install packages'
+      apt:
+        name:
+          - postgresql
+          - postgresql-contrib
+        state: present
+        update_cache: yes
+
+    - name: 'postgres : stop and disable service'
+      service:
+        enabled: no
+        name: postgresql
+        state: stopped
+
+    tags:
+      - services
+      - postgres
+      - metasploit
