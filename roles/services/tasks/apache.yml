@@ -1,0 +1,21 @@
+---
+- block:
+
+  - name: 'apache : install packages'
+    apt:
+      name:
+        - apache2
+        - libapache2-mod-php
+        - php
+      state: present
+      update_cache: yes
+
+  - name: 'apache : stop and disable service'
+    service:
+      enabled: no
+      name: apache2
+      state: stopped
+
+  tags:
+    - services
+    - apache

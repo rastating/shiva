@@ -4,6 +4,7 @@
 
   roles:
     - common
+    - services
     - exploitation
     - mobile
     - web
