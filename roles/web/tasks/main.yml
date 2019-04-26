@@ -1,7 +1,4 @@
 ---
-- include: dirb.yml
-  tags:
-    - web
-    - dirb
-
+- include: dirb.yml tags=web,dirb
 - include: gobuster.yml tags=web,gobuster
+- include: wpxf.yml tags=web,wpxf

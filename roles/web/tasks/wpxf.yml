@@ -16,5 +16,5 @@
     shell: '/bin/bash -lc "gem install wpxf"'
 
   tags:
-    - exploitation
+    - web
     - wpxf
