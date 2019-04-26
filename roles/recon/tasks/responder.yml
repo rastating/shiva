@@ -1,0 +1,21 @@
+---
+- block:
+
+  - name: 'responder : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/responder
+      force: yes
+      repo: https://github.com/SpiderLabs/Responder.git
+
+  - name: 'responder : add startup script'
+    template:
+      dest: /usr/local/bin/responder
+      mode: 0755
+      src: ../templates/responder.sh
+
+  tags:
+    - recon
+    - responder
