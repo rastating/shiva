@@ -1,2 +1,3 @@
 ---
 - include: apache.yml tags=services,apache
+- include: postgres.yml tags=services,postgres
