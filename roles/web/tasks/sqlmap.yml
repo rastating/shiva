@@ -1,0 +1,21 @@
+---
+- block:
+
+  - name: 'sqlmap : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/sqlmap
+      force: yes
+      repo: https://github.com/sqlmapproject/sqlmap.git
+
+  - name: 'sqlmap : add startup script'
+    template:
+      dest: /usr/local/bin/sqlmap
+      mode: 0755
+      src: ../templates/sqlmap.sh
+
+  tags:
+    - web
+    - sqlmap

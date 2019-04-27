@@ -2,4 +2,5 @@
 - include: dirb.yml tags=web,dirb
 - include: gobuster.yml tags=web,gobuster
 - include: nikto.yml tags=web,nikto
+- include: sqlmap.yml tags=web,sqlmap
 - include: wpxf.yml tags=web,wpxf
