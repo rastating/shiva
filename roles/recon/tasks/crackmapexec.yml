@@ -1,0 +1,36 @@
+---
+- block:
+
+  - name: 'crackmapexec : install dependencies'
+    apt:
+      name:
+        - libssl-dev
+        - libffi-dev
+        - python-dev
+        - build-essential
+      state: present
+      update_cache: yes
+
+  - name: 'crackmapexec : create venv directory'
+    file:
+      path: /opt/crackmapexec
+      state: directory
+
+  - name: 'crackmapexec : initialise venv'
+    shell: 'bash -lc "virtualenv /opt/crackmapexec"'
+
+  - name: 'crackmapexec : install via pip'
+    pip:
+      name: crackmapexec
+      state: present
+      virtualenv: /opt/crackmapexec
+
+  - name: 'crackmapexec : install launcher'
+    template:
+      dest: /usr/local/bin/crackmapexec
+      mode: 0755
+      src: ../templates/crackmapexec.sh
+
+  tags:
+    - recon
+    - crackmapexec

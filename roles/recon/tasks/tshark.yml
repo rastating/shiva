@@ -1,0 +1,12 @@
+---
+- block:
+
+  - name: 'tshark : install package'
+    apt:
+      name: tshark
+      state: present
+      update_cache: yes
+
+  tags:
+    - recon
+    - tshark
