@@ -1,0 +1,30 @@
+---
+- block:
+
+  - name: 'nikto : install dependencies'
+    apt:
+      name:
+        - libnet-ssleay-perl
+        - libwhisker2-perl
+        - perl-openssl-defaults
+      state: present
+      update_cache: yes
+
+  - name: 'nikto : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/nikto
+      force: yes
+      repo: https://github.com/sullo/nikto.git
+
+  - name: 'nikto : install launcher'
+    template:
+      dest: /usr/local/bin/nikto
+      mode: 0755
+      src: ../templates/nikto.sh
+
+  tags:
+    - web
+    - nikto
