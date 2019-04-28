@@ -1,2 +1,3 @@
 ---
+- include: hydra.yml tags=password-attacks,hydra
 - include: seclists.yml tags=password-attacks,seclists

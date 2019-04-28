@@ -1,0 +1,35 @@
+---
+- block:
+
+  - name: 'hydra : clone v8.9.1 source code'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /tmp/hydra
+      force: yes
+      repo: https://github.com/vanhauser-thc/thc-hydra.git
+      version: v8.9.1
+
+  - name: 'hydra : configure'
+    shell: 'bash -lc "/tmp/hydra/configure"'
+    args:
+      chdir: /tmp/hydra
+
+  - name: 'hydra : make'
+    make:
+      chdir: /tmp/hydra
+
+  - name: 'hydra : make install'
+    make:
+      chdir: /tmp/hydra
+      target: install
+
+  - name: 'hydra : remove build fragments'
+    file:
+      path: /tmp/hydra
+      state: absent
+
+  tags:
+    - password-attacks
+    - hydra
