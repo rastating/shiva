@@ -1,0 +1,2 @@
+---
+- include: seclists.yml tags=password-attacks,seclists

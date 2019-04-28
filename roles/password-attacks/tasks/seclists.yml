@@ -1,0 +1,50 @@
+---
+- block:
+
+  - name: 'seclists : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /tmp/seclists
+      force: yes
+      repo: https://github.com/danielmiessler/SecLists.git
+
+  - name: 'seclists : create parent directory'
+    file:
+      path: /usr/share/wordlists/seclists
+      state: directory
+
+  - name: 'seclists : copy wordlist directories'
+    synchronize:
+      dest: '/usr/share/wordlists/seclists/{{ item|lower }}'
+      src: '/tmp/seclists/{{ item }}/'
+    delegate_to: '{{ inventory_hostname }}'
+    with_items:
+      - Discovery
+      - Fuzzing
+      - Miscellaneous
+      - Passwords
+      - Usernames
+
+  - name: 'seclists : extract rockyou archive'
+    unarchive:
+      dest: /usr/share/wordlists/
+      group: root
+      mode: 0664
+      owner: root
+      remote_src: yes
+      src: /usr/share/wordlists/seclists/passwords/Leaked-Databases/rockyou.txt.tar.gz
+
+  - name: 'seclists : cleanup temp files'
+    file:
+      dest: '{{ item }}'
+      state: absent
+    with_items:
+      - /tmp/seclists
+      - /usr/share/wordlists/seclists/passwords/Leaked-Databases/rockyou.txt.tar.gz
+      - /usr/share/wordlists/seclists/passwords/Leaked-Databases/rockyou-withcount.txt.tar.gz
+
+  tags:
+    - password-attacks
+    - seclists
