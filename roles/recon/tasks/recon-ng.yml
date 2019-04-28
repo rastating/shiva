@@ -1,0 +1,35 @@
+---
+- block:
+
+  - name: 'recon-ng : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/recon-ng
+      force: yes
+      repo: https://LaNMaSteR53@bitbucket.org/LaNMaSteR53/recon-ng.git
+
+  - name: 'recon-ng : create venv directory'
+    file:
+      path: /opt/recon-ng/.venv
+      state: directory
+
+  - name: 'recon-ng : initialise venv'
+    shell: 'bash -lc "virtualenv /opt/recon-ng/.venv"'
+
+  - name: 'recon-ng : install requirements'
+    pip:
+      requirements: /opt/recon-ng/REQUIREMENTS
+      state: present
+      virtualenv: /opt/recon-ng/.venv
+
+  - name: 'recon-ng : install launcher'
+    template:
+      dest: /usr/local/bin/recon-ng
+      mode: 0755
+      src: ../templates/recon-ng.sh
+
+  tags:
+    - recon
+    - recon-ng
