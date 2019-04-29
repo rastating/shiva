@@ -3,4 +3,5 @@
 - include: gobuster.yml tags=web,gobuster
 - include: nikto.yml tags=web,nikto
 - include: sqlmap.yml tags=web,sqlmap
+- include: wpscan.yml tags=web,wpscan
 - include: wpxf.yml tags=web,wpxf

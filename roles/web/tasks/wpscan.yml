@@ -1,0 +1,9 @@
+---
+- block:
+
+  - name: 'wpscan : install gem'
+    shell: '/bin/bash -lc "gem install wpscan"'
+
+  tags:
+    - web
+    - wpscan
