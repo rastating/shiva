@@ -1,0 +1,35 @@
+---
+- block:
+
+  - name: 'the-harvester : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/theHarvester
+      force: yes
+      repo: https://github.com/laramies/theHarvester.git
+
+  - name: 'the-harvester : create virtualenv'
+    file:
+      path: /opt/theHarvester/.venv
+      state: directory
+
+  - name: 'the-harvester : initialise venv'
+    shell: 'bash -lc "virtualenv -p python3 /opt/theHarvester/.venv"'
+
+  - name: 'the-harvester : install requirements'
+    pip:
+      requirements: /opt/theHarvester/requirements.txt
+      state: present
+      virtualenv: /opt/theHarvester/.venv
+
+  - name: 'the-harvester : install launcher'
+    template:
+      dest: /usr/local/bin/theHarvester
+      mode: 0755
+      src: ../templates/theHarvester.sh
+
+  tags:
+    - recon
+    - the-harvester
