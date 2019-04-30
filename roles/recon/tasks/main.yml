@@ -1,5 +1,6 @@
 ---
 - include: crackmapexec.yml tags=recon,crackmapexec
+- include: masscan.yml tags=recon,masscan
 - include: recon-ng.yml tags=recon,recon-ng
 - include: responder.yml tags=recon,responder
 - include: tshark.yml tags=recon,tshark

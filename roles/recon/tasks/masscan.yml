@@ -1,0 +1,35 @@
+---
+- block:
+
+  - name: 'masscan : install dependencies'
+    apt:
+      name:
+        - git
+        - gcc
+        - make
+        - libpcap-dev
+      state: present
+      update_cache: yes
+
+  - name: 'masscan : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /tmp/masscan
+      force: yes
+      repo: https://github.com/robertdavidgraham/masscan
+
+  - name: 'masscan : build and install'
+    make:
+      chdir: /tmp/masscan
+      target: install
+
+  - name: 'masscan : cleanup build fragments'
+    file:
+      path: /tmp/masscan
+      state: absent
+
+  tags:
+    - recon
+    - masscan
