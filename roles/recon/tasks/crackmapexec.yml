@@ -11,13 +11,18 @@
       state: present
       update_cache: yes
 
+  - name: 'crackmapexec : remove existing venv'
+    file:
+      path: /opt/crackmapexec
+      state: absent
+
   - name: 'crackmapexec : create venv directory'
     file:
       path: /opt/crackmapexec
       state: directory
 
   - name: 'crackmapexec : initialise venv'
-    shell: 'bash -lc "virtualenv /opt/crackmapexec"'
+    shell: 'bash -lc "virtualenv -p python2 /opt/crackmapexec"'
 
   - name: 'crackmapexec : install via pip'
     pip:

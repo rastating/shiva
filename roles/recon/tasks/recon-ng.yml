@@ -10,13 +10,18 @@
       force: yes
       repo: https://LaNMaSteR53@bitbucket.org/LaNMaSteR53/recon-ng.git
 
+  - name: 'recon-ng : remove existing venv'
+    file:
+      path: /opt/recon-ng/.venv
+      state: absent
+
   - name: 'recon-ng : create venv directory'
     file:
       path: /opt/recon-ng/.venv
       state: directory
 
   - name: 'recon-ng : initialise venv'
-    shell: 'bash -lc "virtualenv /opt/recon-ng/.venv"'
+    shell: 'bash -lc "virtualenv -p python2 /opt/recon-ng/.venv"'
 
   - name: 'recon-ng : install requirements'
     pip:
