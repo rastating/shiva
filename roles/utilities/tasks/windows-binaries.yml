@@ -1,0 +1,11 @@
+---
+- block:
+
+  - name: 'windows-binaries : copy executables'
+    copy:
+      src: ../files/windows-binaries
+      dest: /usr/share
+
+  tags:
+    - utilities
+    - windows-binaries

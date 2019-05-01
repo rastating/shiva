@@ -1,2 +1,4 @@
 ---
 - include: mssql-cli.yml tags=utilities,mssql-cli
+- include: webshells.yml tags=utilities,webshells
+- include: windows-binaries.yml tags=utilities,windows-binaries

@@ -1,0 +1,11 @@
+---
+- block:
+
+  - name: 'webshells : copy web shells'
+    copy:
+      src: ../files/webshells
+      dest: /usr/share
+
+  tags:
+    - utilities
+    - webshells
