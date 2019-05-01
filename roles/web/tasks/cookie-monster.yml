@@ -1,0 +1,9 @@
+---
+- block:
+
+  - name: 'cookie-monster : install npm package'
+    shell: 'bash -lc "yarn global add @digital-interruption/cookie-monster"'
+
+  tags:
+    - web
+    - cookie-monster

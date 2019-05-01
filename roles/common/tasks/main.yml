@@ -1,23 +1,7 @@
 ---
-- include: packages.yml
-  tags:
-    - common
-    - packages
-
-- include: firewall.yml
-  tags:
-    - common
-    - networking
-
-- include: shell.yml
-  tags:
-    - common
-    - shell
-
-- include: golang.yml
-  tags:
-    - common
-    - golang
-
-- include: ruby.yml
-  tags: common,ruby
+- include: packages.yml tags=common,packages
+- include: firewall.yml tags=common,networking
+- include: shell.yml tags=common,shell
+- include: golang.yml tags=common,golang
+- include: ruby.yml tags=common,ruby
+- include: node.yml tags=common,node,cookie-monster

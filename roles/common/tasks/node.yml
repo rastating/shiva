@@ -1,0 +1,43 @@
+---
+- block:
+
+  - name: 'node : download setup script'
+    get_url:
+      url: https://deb.nodesource.com/setup_10.x
+      dest: /tmp/node_setup.sh
+
+  - name: 'node : execute PPA setup script'
+    shell: bash /tmp/node_setup.sh
+
+  - name: 'node : install Node'
+    apt:
+      name: nodejs
+      state: present
+      update_cache: yes
+
+  - name: 'node : import Yarn APT key'
+    apt_key:
+      state: present
+      url: https://dl.yarnpkg.com/debian/pubkey.gpg
+
+  - name: 'node : setup Yarn PPA'
+    apt_repository:
+      repo: deb https://dl.yarnpkg.com/debian/ stable main
+      state: present
+      filename: yarn
+      update_cache: yes
+
+  - name: 'node : install Yarn'
+    apt:
+      name: yarn
+      state: present
+
+  - name: 'node : cleanup temp files'
+    file:
+      path: /tmp/node_setup.sh
+      state: absent
+
+  tags:
+    - common
+    - node
+    - cookie-monster

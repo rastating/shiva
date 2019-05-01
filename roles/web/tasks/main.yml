@@ -1,4 +1,5 @@
 ---
+- include: cookie-monster.yml tags=web,cookie-monster
 - include: dirb.yml tags=web,dirb
 - include: gobuster.yml tags=web,gobuster
 - include: nikto.yml tags=web,nikto
