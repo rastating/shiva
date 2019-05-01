@@ -1,0 +1,37 @@
+---
+- block:
+
+  - name: 'wfuzz : remove existing venv'
+    file:
+      path: /opt/wfuzz
+      state: absent
+
+  - name: 'wfuzz : create venv directory'
+    file:
+      path: /opt/wfuzz
+      state: directory
+
+  - name: 'wfuzz : initialise venv'
+    shell: 'bash -lc "virtualenv -p python2 /opt/wfuzz"'
+
+  - name: 'wfuzz : install shodan package'
+    pip:
+      name: shodan
+      state: present
+      virtualenv: /opt/wfuzz
+
+  - name: 'wfuzz : install via pip'
+    pip:
+      name: wfuzz
+      state: present
+      virtualenv: /opt/wfuzz
+
+  - name: 'wfuzz : install launcher'
+    template:
+      dest: /usr/local/bin/wfuzz
+      mode: 0755
+      src: ../templates/wfuzz.sh
+
+  tags:
+    - web
+    - wfuzz
