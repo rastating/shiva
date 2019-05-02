@@ -1,0 +1,16 @@
+# https://rubygems.org/gems/snmp/
+---
+- block:
+
+  - name: 'snmp-check : install snmp gem'
+    shell: '/bin/bash -lc "gem install snmp"'
+
+  - name: 'snmp-check : install script'
+    copy:
+      dest: /usr/local/bin/snmpcheck
+      mode: 0755
+      src: ../files/snmpcheck-1.9.rb
+
+  tags:
+    - recon
+    - snmp-check

@@ -19,5 +19,6 @@
     - common
     - ruby
     - metasploit
+    - snmp-check
     - wpscan
     - wpxf
