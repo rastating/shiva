@@ -1,0 +1,109 @@
+---
+- block:
+
+  - name: 'vsftpd : install package'
+    apt:
+      name: vsftpd
+      state: present
+      update_cache: yes
+
+  - name: 'vsftpd : create srv directory'
+    file:
+      group: root
+      owner: root
+      path: /srv/ftp/users/ftp
+      state: directory
+
+  - name: 'vsftpd : add ftp user'
+    user:
+      create_home: no
+      home: /srv/ftp/users/ftp
+      name: ftp
+      shell: /bin/sh
+      state: present
+
+  - name: 'vsftpd : disable ssh access for ftp user'
+    lineinfile:
+      line: 'DenyUsers ftp'
+      path: /etc/ssh/sshd_config
+      regex: 'DenyUsers ftp'
+      state: present
+
+  - name: 'vsftpd : reload sshd'
+    service:
+      name: sshd
+      state: reloaded
+
+  - name: 'vsftpd : create ftp files directory'
+    file:
+      group: ftp
+      owner: ftp
+      path: /srv/ftp/users/ftp/files
+      state: directory
+
+  - name: 'vsftpd : enable write access'
+    lineinfile:
+      line: 'write_enable=YES'
+      path: /etc/vsftpd.conf
+      regexp: 'write_enable=YES'
+      state: present
+
+  - name: 'vsftpd : enable chroot'
+    lineinfile:
+      line: 'chroot_local_user=YES'
+      path: /etc/vsftpd.conf
+      regexp: 'chroot_local_user=YES'
+      state: present
+
+  - name: 'vsftpd : setup sub token and local root'
+    lineinfile:
+      line: '{{ item }}'
+      path: /etc/vsftpd.conf
+      state: present
+    with_items:
+      - 'user_sub_token=$USER'
+      - 'local_root=/srv/ftp/users/$USER'
+
+  - name: 'vsftpd : setup passive port range'
+    lineinfile:
+      line: '{{ item }}'
+      path: /etc/vsftpd.conf
+      regex: '{{ item }}'
+      state: present
+    with_items:
+      - 'pasv_min_port=40000'
+      - 'pasv_max_port=50000'
+
+  - name: 'vsftpd : setup access list'
+    lineinfile:
+      line: '{{ item }}'
+      path: /etc/vsftpd.conf
+      regex: '{{ item }}'
+      state: present
+    with_items:
+      - 'userlist_enable=YES'
+      - 'userlist_file=/etc/vsftpd.userlist'
+      - 'userlist_deny=NO'
+
+  - name: 'vsftpd: create access list file'
+    file:
+      path: /etc/vsftpd.userlist
+      state: touch
+
+  - name: 'vsftpd : add ftp user to access list'
+    lineinfile:
+      line: ftp
+      path: /etc/vsftpd.userlist
+      regex: ftp
+      state: present
+
+  - name: 'vsftpd : disable service'
+    service:
+      enabled: no
+      name: vsftpd
+      state: stopped
+
+  tags:
+    - services
+    - ftp
+    - vsftpd
