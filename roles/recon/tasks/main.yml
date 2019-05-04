@@ -5,5 +5,6 @@
 - include: recon-ng.yml tags=recon,recon-ng
 - include: responder.yml tags=recon,responder
 - include: snmp-check.yml tags=recon,snmp-check
+- include: sslscan.yml tags=recon,sslscan
 - include: the-harvester.yml tags=recon,the-harvester
 - include: tshark.yml tags=recon,tshark

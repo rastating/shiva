@@ -1,0 +1,54 @@
+---
+- block:
+
+  - name: 'sslscan : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /tmp/sslscan
+      force: yes
+      repo: https://github.com/rbsec/sslscan.git
+
+  - name: 'sslscan : add src repo for build dependencies'
+    apt_repository:
+      repo: 'deb-src http://archive.ubuntu.com/ubuntu bionic main restricted'
+      state: present
+      update_cache: yes
+    when:
+      ansible_distribution == 'Ubuntu' and
+      ansible_distribution_release == 'bionic'
+
+  - name: 'sslscan : install dependencies'
+    apt:
+      name:
+        - build-essential
+        - zlib1g-dev
+      state: present
+      update_cache: yes
+
+  - name: 'sslscan : build dependencies from src'
+    apt:
+      name: openssl
+      state: build-dep
+
+  - name: 'sslscan : build (statically linked)'
+    make:
+      chdir: /tmp/sslscan
+      target: static
+
+  - name: 'sslscan : install'
+    copy:
+      dest: /usr/local/bin/sslscan
+      mode: 0755
+      remote_src: yes
+      src: /tmp/sslscan/sslscan
+
+  - name: 'sslscan : remove build fragments'
+    file:
+      path: /tmp/sslscan
+      state: absent
+
+  tags:
+    - recon
+    - sslscan
