@@ -39,7 +39,7 @@
 
   - name: 'packages : install virtualenv under Python 2'
     pip:
-      executable: /usr/local/bin/pip
+      executable: /usr/bin/pip
       name: virtualenv
       state: present
 

@@ -4,6 +4,7 @@
 
   roles:
     - common
+    - cracking
     - services
     - exploitation
     - mobile
