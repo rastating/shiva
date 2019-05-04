@@ -1,0 +1,44 @@
+---
+- block:
+
+  - name: 'hashcat : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /tmp/hashcat
+      force: yes
+      repo: https://github.com/hashcat/hashcat.git
+
+  - name: 'hashcat : build'
+    make:
+      chdir: /tmp/hashcat
+
+  - name: 'hashcat : install'
+    make:
+      chdir: /tmp/hashcat
+      target: install
+
+  - name: 'hashcat : create data directory'
+    file:
+      path: /usr/share/hashcat
+      state: directory
+
+  - name: 'hashcat : copy data files'
+    synchronize:
+      dest: /usr/share/hashcat
+      src: '/tmp/hashcat/{{ item }}'
+    delegate_to: '{{ inventory_hostname }}'
+    with_items:
+      - rules
+      - masks
+      - charsets
+
+  - name: 'hashcat : cleanup build fragments'
+    file:
+      path: /tmp/hashcat
+      state: absent
+
+  tags:
+    - cracking
+    - hashcat

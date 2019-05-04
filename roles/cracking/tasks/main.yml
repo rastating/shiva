@@ -1,3 +1,4 @@
 ---
 - include: fcrackzip.yml tags=cracking,fcrackzip
+- include: hashcat.yml tags=cracking,hashcat
 - include: jtr.yml tags=cracking,jtr
