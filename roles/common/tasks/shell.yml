@@ -39,6 +39,11 @@
       path: /root/.zshrc
       line: source /etc/zsh_command_not_found
 
+  - name: 'shell : add explicit call to compinit to setup custom tab completions'
+    lineinfile:
+      path: /root/.zshrc
+      line: compinit
+
   - name: 'shell : copy dircolors configuration'
     template:
       dest: /root/.dircolors
