@@ -1,0 +1,12 @@
+---
+- block:
+
+  - name: 'medusa : install package'
+    apt:
+      name: medusa
+      state: present
+      update_cache: yes
+
+  tags:
+    - password-attacks
+    - medusa

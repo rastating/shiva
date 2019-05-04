@@ -1,3 +1,5 @@
 ---
 - include: hydra.yml tags=password-attacks,hydra
+- include: medusa.yml tags=password-attacks,medusa
+- include: ncrack.yml tags=password-attacks,ncrack
 - include: seclists.yml tags=password-attacks,seclists

@@ -1,0 +1,12 @@
+---
+- block:
+
+  - name: 'ncrack : install package'
+    apt:
+      name: ncrack
+      state: present
+      update_cache: yes
+
+  tags:
+    - password-attacks
+    - ncrack
