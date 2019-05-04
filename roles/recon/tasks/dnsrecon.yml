@@ -1,0 +1,41 @@
+---
+- block:
+
+  - name: 'dnsrecon : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/dnsrecon
+      force: yes
+      repo: https://github.com/darkoperator/dnsrecon.git
+
+  - name: 'dnsrecon : remove existing venv'
+    file:
+      path: /opt/dnsrecon/.venv
+      state: absent
+
+  - name: 'dnsrecon : create venv directory'
+    file:
+      path: /opt/dnsrecon.venv
+      state: directory
+
+  - name: 'dnsrecon : initialise venv'
+    shell: 'bash -lc "virtualenv -p python2 /opt/dnsrecon/.venv"'
+
+  - name: 'dnsrecon : install requirements'
+    pip:
+      requirements: /opt/dnsrecon/requirements.txt
+      state: present
+      virtualenv: /opt/dnsrecon/.venv
+
+  - name: 'dnsrecon : install launcher'
+    template:
+      dest: /usr/local/bin/dnsrecon
+      mode: 0755
+      src: ../templates/dnsrecon.sh
+
+  tags:
+    - recon
+    - dnsrecon
+    - dns
