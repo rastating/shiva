@@ -2,6 +2,7 @@
 - include: crackmapexec.yml tags=recon,crackmapexec
 - include: dnsrecon.yml tags=recon,dns,dnsrecon
 - include: masscan.yml tags=recon,masscan
+- include: pspy.yml tags=recon,pspy
 - include: recon-ng.yml tags=recon,recon-ng
 - include: responder.yml tags=recon,responder
 - include: snmp-check.yml tags=recon,snmp-check

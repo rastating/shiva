@@ -1,0 +1,57 @@
+---
+- block:
+
+  - name: 'pspy : create linux-binaries directory'
+    file:
+      path: /usr/share/linux-binaries
+      state: directory
+
+  - name: 'pspy : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /tmp/pspy
+      force: yes
+      repo: https://github.com/DominicBreuker/pspy.git
+
+  - name: 'pspy : get dependencies'
+    shell: '/bin/bash -lc "/usr/local/go/bin/go get"'
+    args:
+      chdir: /tmp/pspy
+
+  - name: 'pspy : build 32-bit binary'
+    shell: '/bin/bash -lc "GOARCH=386 /usr/local/go/bin/go build"'
+    args:
+      chdir: /tmp/pspy
+
+  - name: 'pspy : move 32-bit binary to linux-binaries'
+    copy:
+      dest: /usr/share/linux-binaries/pspy32
+      mode: 0755
+      remote_src: yes
+      src: /tmp/pspy/pspy
+
+  - name: 'pspy : build 64-bit binary'
+    shell: '/bin/bash -lc "GOARCH=amd64 /usr/local/go/bin/go build"'
+    args:
+      chdir: /tmp/pspy
+
+  - name: 'pspy : move 64-bit binary to linux-binaries'
+    copy:
+      dest: /usr/share/linux-binaries/pspy64
+      mode: 0755
+      remote_src: yes
+      src: /tmp/pspy/pspy
+
+  - name: 'pspy : remove build fragments'
+    file:
+      path: '{{ item }}'
+      state: absent
+    with_items:
+      - /root/.go/bin/pspy
+      - /tmp/pspy
+
+  tags:
+    - recon
+    - pspy
