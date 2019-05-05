@@ -1,6 +1,6 @@
-<div style="text-align: center;">
-  <img src="https://static.rastating.com/images/shiva.png" style="height: 300px;">
-</div>
+<p align="center">
+  <img src="https://static.rastating.com/images/shiva-300px.png">
+</p>
 
 ## What is Shiva?
 Shiva is an Ansible playbook to provision a host to be used for playing CTF games, such as [HackTheBox](https://www.hackthebox.eu/).
