@@ -9,7 +9,7 @@ Shiva is an Ansible playbook to provision a host to be used for playing CTF game
 1. Create a Ubuntu 18.04 server host and ensure you have root access via SSH
 2. Install [Ansible](https://www.ansible.com/) on your local machine
 3. Clone the repository to your local machine: `git clone git@github.com:rastating/shiva.git`
-4. Add the IP address of the host to provision to the `ubuntu_bionic` section of `inventory.ini`
+4. Replace `127.0.0.1` with the IP address of the host to provision in the `ubuntu_bionic` section of `inventory.ini`
 5. Run the playbook: `ansible-playbook -i inventory.ini -u root -l ubuntu_bionic playbook.yml`
 
 ## Why Shiva and not another Hindu deity?
