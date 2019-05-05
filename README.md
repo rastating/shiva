@@ -55,6 +55,7 @@ Currently, Shiva has only been tested against Ubuntu 18.04.
 | vsftpd          | Services         | https://security.appspot.com/vsftpd.html                 |
 | MS-SQL CLI      | Tools            | https://docs.microsoft.com/en-us/sql/tools/mssql-cli     |
 | OpenVPN         | Tools            | https://openvpn.net/                                     |
+| smbclient       | Tools            |                                                          |
 | Socat           | Tools            |                                                          |
 | Cookie Monster  | Web              | https://github.com/DigitalInterruption/cookie-monster    |
 | Dirb            | Web              | http://dirb.sourceforge.net/                             |
