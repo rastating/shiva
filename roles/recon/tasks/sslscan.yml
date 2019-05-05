@@ -12,12 +12,11 @@
 
   - name: 'sslscan : add src repo for build dependencies'
     apt_repository:
-      repo: 'deb-src http://archive.ubuntu.com/ubuntu bionic main restricted'
+      repo: 'deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} main restricted'
       state: present
       update_cache: yes
     when:
-      ansible_distribution == 'Ubuntu' and
-      ansible_distribution_release == 'bionic'
+      ansible_distribution == 'Ubuntu'
 
   - name: 'sslscan : install dependencies'
     apt:
