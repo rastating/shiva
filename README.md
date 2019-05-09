@@ -24,6 +24,13 @@ Currently, Shiva has only been tested against Ubuntu 18.04.
 
 | Name            | Category         | Home Page                                                |
 |-----------------|------------------|----------------------------------------------------------|
+| binwalk         | Binary Analysis  | https://github.com/ReFirmLabs/binwalk                    |
+| GDB             | Binary Analysis  | https://www.gnu.org/software/gdb/                        |
+| nasm            | Binary Analysis  | https://www.nasm.us/                                     |
+| PEDA            | Binary Analysis  | https://github.com/longld/peda                           |
+| pwntools        | Binary Analysis  | https://github.com/Gallopsled/pwntools                   |
+| Radare2         | Binary Analysis  | https://rada.re/r/                                       |
+| Ropper          | Binary Analysis  | https://scoding.de/ropper/                               |
 | FCrackZip       | Cracking         | http://oldhome.schmorp.de/marc/fcrackzip.html            |
 | hashcat         | Cracking         | https://hashcat.net/hashcat/                             |
 | John The Ripper | Cracking         | https://www.openwall.com/john/                           |
