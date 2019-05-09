@@ -1,0 +1,29 @@
+---
+- block:
+
+  - name: 'peda : install gdb'
+    apt:
+      name: gdb
+      state: present
+      cache_valid_time: '{{ apt_cache_timeout }}'
+
+  - name: 'peda : clone peda'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /root/.peda
+      force: yes
+      repo: https://github.com/longld/peda.git
+
+  - name: 'peda : add initialisation to .gdbinit'
+    lineinfile:
+      create: yes
+      line: 'source ~/.peda/peda.py'
+      path: /root/.gdbinit
+      regex: 'source ~/.peda/peda.py'
+
+  tags:
+    - binary-analysis
+    - gdb
+    - peda

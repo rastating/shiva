@@ -1,0 +1,43 @@
+---
+- block:
+
+  - name: 'radare2 : download and verify archive (v3.4.1)'
+    get_url:
+      url: https://github.com/radare/radare2/archive/3.4.1.tar.gz
+      dest: /tmp/radare2.tar.gz
+      checksum: sha256:3df1f9a79ef64f9c9205453c735ac5a29ef8e88f336fd16c5bbaa64b1dc0c975
+
+  - name: 'radare2 : extract archive'
+    unarchive:
+      dest: /tmp
+      remote_src: yes
+      src: /tmp/radare2.tar.gz
+
+  - name: 'radare2 : configure'
+    shell: 'bash -lc "./configure --prefix=/usr"'
+    args:
+      chdir: /tmp/radare2-3.4.1
+
+  - name: 'radare2 : make'
+    shell: 'bash -lc "make -j8"'
+    args:
+      chdir: /tmp/radare2-3.4.1
+    register: r2build
+    failed_when: r2build.rc != 2 and r2build.rc != 0
+
+  - name: 'radare2 : install'
+    make:
+      chdir: /tmp/radare2-3.4.1
+      target: install
+
+  - name: 'radare2 : remove build fragments'
+    file:
+      path: '{{ item }}'
+      state: absent
+    with_items:
+      - /tmp/radare2-3.4.1
+      - /tmp/radare2.tar.gz
+
+  tags:
+    - binary-analysis
+    - radare2

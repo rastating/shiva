@@ -1,0 +1,48 @@
+---
+- block:
+
+  - name: 'ropper : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/ropper
+      force: yes
+      repo: https://github.com/sashs/Ropper.git
+
+  - name: 'ropper : remove existing venv'
+    file:
+      path: /opt/ropper/.venv
+      state: absent
+
+  - name: 'ropper : create venv directory'
+    file:
+      path: /opt/ropper/.venv
+      state: directory
+
+  - name: 'ropper : initialse venv'
+    shell: 'bash -lc "virtualenv -p python2 /opt/ropper/.venv"'
+
+  - name: 'ropper : install capstone'
+    pip:
+      name: capstone
+      state: present
+      virtualenv: /opt/ropper/.venv
+
+  - name: 'ropper : initialise filebytes submodule'
+    shell: 'bash -lc "{{ item }}"'
+    args:
+      chdir: /opt/ropper
+    with_items:
+      - git submodule init
+      - git submodule update
+
+  - name: 'ropper : install launcher'
+    template:
+      dest: /usr/local/bin/ropper
+      mode: 0755
+      src: ../templates/ropper.sh
+
+  tags:
+    - binary-analysis
+    - ropper

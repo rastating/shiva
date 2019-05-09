@@ -1,0 +1,7 @@
+---
+- include: binwalk.yml tags=binary-analysis,binwalk
+- include: nasm.yml tags=binary-analysis,nasm
+- include: peda.yml tags=binary-analysis,peda
+- include: pwntools.yml tags=binary-analysis,pwntools
+- include: radare2.yml tags=binary-analysis,radare2
+- include: ropper.yml tags=binary-analysis,ropper

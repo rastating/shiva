@@ -1,2 +1,3 @@
 ---
 trusted_ssh_ip: any
+apt_cache_timeout: 3600

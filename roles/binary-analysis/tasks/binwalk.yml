@@ -1,0 +1,12 @@
+---
+- block:
+
+  - name: 'binwalk : install package'
+    apt:
+      name: binwalk
+      state: present
+      cache_valid_time: '{{ apt_cache_timeout }}'
+
+  tags:
+    - binary-analysis
+    - binwalk

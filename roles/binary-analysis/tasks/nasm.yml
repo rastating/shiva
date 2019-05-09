@@ -1,0 +1,12 @@
+---
+- block:
+
+  - name: 'nasm : install package'
+    apt:
+      name: nasm
+      state: present
+      cache_valid_time: '{{ apt_cache_timeout }}'
+
+  tags:
+    - binary-analysis
+    - nasm

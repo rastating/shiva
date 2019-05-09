@@ -1,0 +1,21 @@
+---
+- block:
+
+  - name: 'pwntools : install prerequisites'
+    apt:
+      name:
+        - libssl-dev
+        - libffi-dev
+        - build-essential
+      state: present
+      cache_valid_time: '{{ apt_cache_timeout }}'
+
+  - name: 'pwntools : install into global environment'
+    pip:
+      executable: pip
+      name: pwntools
+      state: present
+
+  tags:
+    - binary-analysis
+    - pwntools
