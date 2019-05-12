@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<package>
+    <name>lavalamp_server_explorer</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>GNU General Public License (GPL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Your server is under exploration</summary>
+    <description>Your server is under exploration</description>
+    <notes>Your server is under exploration</notes>
+    <authors>
+        <author>
+            <name>lavalamp</name>
+            <user>lavalamp</user>
+            <email>alavalamp@mailinator.com</email>
+        </author>
+    </authors>
+    <date>1970-01-01</date>
+    <time>00:00:00</time>
+    <contents>
+        <target name="magecommunity">
+            <dir name="Lavalamp">
+                <dir name="Connector">
+                    <dir name="Block">
+                    </dir>
+                    <dir name="Helper">
+                    </dir>
+                    <dir name="Model">
+                    </dir>
+                    <dir name="controllers">
+                        <file hash="c3c1f655b4e6abbcc0a0cbc37b750e34" name="IndexController.php"/>
+                    </dir>
+                    <dir name="etc">
+                        <file hash="8e717ea103964c3288d1677d0fa55ab3" name="config.xml"/>
+                    </dir>
+                    <dir name="sql">
+                    </dir>
+                </dir>
+            </dir>
+        </target>
+        <target name="mageetc">
+            <dir name="modules">
+                <file hash="1b2567811b93c84b31f431fccb8f4659" name="Lavalamp_Connector.xml"/>
+            </dir>
+        </target>
+    </contents>
+    <compatible/>
+    <dependencies>
+        <required>
+            <php>
+                <min>5.2.0</min>
+                <max>6.0.0</max>
+            </php>
+        </required>
+    </dependencies>
+</package>

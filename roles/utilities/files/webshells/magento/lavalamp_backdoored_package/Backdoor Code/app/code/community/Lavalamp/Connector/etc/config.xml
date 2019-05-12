@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<config>
+	<modules>
+		<Lavalamp_Connector>
+			<version>1.0.0</version>
+		</Lavalamp_Connector>
+	</modules>
+	<frontend>
+		<routers>
+			<lavalamp>
+				<use>standard</use>
+				<args>
+					<module>Lavalamp_Connector</module>
+					<frontName>lavalamp</frontName>
+				</args>
+			</lavalamp>
+		</routers>
+	</frontend>
+</config>

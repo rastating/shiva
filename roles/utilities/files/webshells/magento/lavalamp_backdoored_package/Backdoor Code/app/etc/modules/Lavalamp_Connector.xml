@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Lavalamp_Connector>
+      <active>true</active>
+      <codePool>community</codePool>
+      <version>1.0.0</version>
+    </Lavalamp_Connector>
+  </modules>
+</config>
