@@ -7,6 +7,9 @@
         - apache2
         - libapache2-mod-php
         - php
+        - php-xml
+        - php-mbstring
+        - php-curl
       state: present
       update_cache: yes
 
