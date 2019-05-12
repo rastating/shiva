@@ -20,5 +20,6 @@
     - ruby
     - metasploit
     - snmp-check
+    - whatweb
     - wpscan
     - wpxf

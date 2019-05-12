@@ -1,0 +1,21 @@
+---
+- block:
+
+  - name: 'whatweb : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/whatweb
+      force: yes
+      repo: https://github.com/urbanadventurer/WhatWeb.git
+
+  - name: 'whatweb : install launcher'
+    template:
+      dest: /usr/local/bin/whatweb
+      mode: 0755
+      src: ../templates/whatweb.sh
+
+  tags:
+    - web
+    - whatweb
