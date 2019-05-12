@@ -2,6 +2,7 @@
 - include: cookie-monster.yml tags=web,cookie-monster
 - include: dirb.yml tags=web,dirb
 - include: gobuster.yml tags=web,gobuster
+- include: magescan.yml tags=web,magescan
 - include: nikto.yml tags=web,nikto
 - include: sqlmap.yml tags=web,sqlmap
 - include: wfuzz.yml tags=web,wfuzz

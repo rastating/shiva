@@ -1,0 +1,32 @@
+---
+- block:
+
+  - name: 'magescan : check for existing installation'
+    stat: path=/opt/magescan
+    register: magescan
+
+  - name: 'magescan : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/magescan
+      force: yes
+      repo: https://github.com/steverobbins/magescan.git
+    when: not magescan.stat.exists
+
+  - name: 'magescan : install PHP dependencies'
+    composer:
+      command: install
+      working_dir: /opt/magescan
+    when: not magescan.stat.exists
+
+  - name: 'magescan : add symlink to bin'
+    file:
+      path: /usr/local/bin/magescan
+      src: /opt/magescan/bin/magescan
+      state: link
+
+  tags:
+    - web
+    - magescan

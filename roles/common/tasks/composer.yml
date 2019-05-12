@@ -1,0 +1,18 @@
+---
+- block:
+
+  - name: 'composer : install package'
+    apt:
+      name:
+        - composer
+        - php
+        - php-xml
+        - php-mbstring
+        - php-curl
+      state: present
+      cache_valid_time: '{{ apt_cache_timeout }}'
+
+  tags:
+    - common
+    - composer
+    - magescan
