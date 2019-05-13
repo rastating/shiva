@@ -1,4 +1,9 @@
 ---
+- name: 'sslscan : check for existing installation'
+  stat: path=/usr/local/bin/sslscan
+  register: sslscan
+  tags: recon,sslscan
+
 - block:
 
   - name: 'sslscan : clone repository'
@@ -51,3 +56,4 @@
   tags:
     - recon
     - sslscan
+  when: not sslscan.stat.exists
