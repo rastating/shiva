@@ -1,0 +1,21 @@
+---
+- block:
+
+  - name: 'shocker : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/shocker
+      force: yes
+      repo: https://github.com/nccgroup/shocker.git
+
+  - name: 'shocker : install launcher'
+    template:
+      dest: /usr/local/bin/shocker
+      mode: 0755
+      src: ../templates/shocker.sh
+
+  tags:
+    - web
+    - shocker

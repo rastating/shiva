@@ -4,6 +4,7 @@
 - include: gobuster.yml tags=web,gobuster
 - include: magescan.yml tags=web,magescan
 - include: nikto.yml tags=web,nikto
+- include: shocker.yml tags=web,shocker
 - include: sqlmap.yml tags=web,sqlmap
 - include: wfuzz.yml tags=web,wfuzz
 - include: whatweb.yml tags=web,whatweb
