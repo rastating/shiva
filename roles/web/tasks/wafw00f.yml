@@ -1,0 +1,39 @@
+---
+- block:
+
+  - name: 'wafw00f : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/wafw00f
+      force: yes
+      repo: https://github.com/EnableSecurity/wafw00f.git
+
+  - name: 'wafw00f : remove existing venv'
+    file:
+      path: /opt/wafw00f/.venv
+      state: absent
+
+  - name: 'wafw00f : create venv directory'
+    file:
+      path: /opt/wafw00f.venv
+      state: directory
+
+  - name: 'wafw00f : initialise venv'
+    shell: 'bash -lc "virtualenv -p python2 /opt/wafw00f/.venv"'
+
+  - name: 'wafw00f : run setup'
+    shell: 'bash -lc "source .venv/bin/activate && python setup.py install"'
+    args:
+      chdir: /opt/wafw00f
+
+  - name: 'wafw00f : install launcher'
+    copy:
+      dest: /usr/local/bin/wafw00f
+      mode: 0755
+      src: ../files/wafw00f.sh
+
+  tags:
+    - web
+    - wafw00f

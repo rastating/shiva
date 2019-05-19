@@ -6,6 +6,7 @@
 - include: nikto.yml tags=web,nikto
 - include: shocker.yml tags=web,shocker
 - include: sqlmap.yml tags=web,sqlmap
+- include: wafw00f.yml tags=web,wafw00f
 - include: wfuzz.yml tags=web,wfuzz
 - include: whatweb.yml tags=web,whatweb
 - include: wpscan.yml tags=web,wpscan
