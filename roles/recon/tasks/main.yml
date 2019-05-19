@@ -1,6 +1,7 @@
 ---
 - include: crackmapexec.yml tags=recon,crackmapexec
 - include: dnsrecon.yml tags=recon,dns,dnsrecon
+- include: linenum.yml tags=recon,linenum
 - include: masscan.yml tags=recon,masscan
 - include: pspy.yml tags=recon,pspy
 - include: recon-ng.yml tags=recon,recon-ng
