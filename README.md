@@ -34,6 +34,8 @@ Currently, Shiva has only been tested against Ubuntu 18.04.
 | FCrackZip       | Cracking         | http://oldhome.schmorp.de/marc/fcrackzip.html            |
 | hashcat         | Cracking         | https://hashcat.net/hashcat/                             |
 | John The Ripper | Cracking         | https://www.openwall.com/john/                           |
+| Hash Identifier | Crypto           | https://code.google.com/archive/p/hash-identifier/       |
+| xortool         | Crypto           | https://github.com/hellman/xortool                       |
 | Go              | Environment      | https://golang.org/                                      |
 | Node.js         | Environment      | https://nodejs.org/en/                                   |
 | Oh My ZSH       | Environment      | https://github.com/robbyrussell/oh-my-zsh                |
@@ -41,6 +43,7 @@ Currently, Shiva has only been tested against Ubuntu 18.04.
 | Empire          | Exploitation     | http://www.powershellempire.com/                         |
 | Metasploit      | Exploitation     | https://www.metasploit.com/                              |
 | PowerSploit     | Exploitation     | https://github.com/PowerShellMafia/PowerSploit           |
+| SearchSploit    | Exploitation     | https://www.exploit-db.com/                              |
 | SuperTTY        | Exploitation     | https://github.com/bad-hombres/supertty                  |
 | Hydra           | Password Attacks | https://github.com/vanhauser-thc/thc-hydra               |
 | Medusa          | Password Attacks | https://github.com/jmk-foofus/medusa                     |
@@ -48,6 +51,7 @@ Currently, Shiva has only been tested against Ubuntu 18.04.
 | SecLists        | Password Attacks | https://github.com/danielmiessler/SecLists               |
 | CrackMapExec    | Recon            | https://github.com/byt3bl33d3r/CrackMapExec              |
 | DNSRecon        | Recon            | https://github.com/darkoperator/dnsrecon                 |
+| LinEnum         | Recon            | https://github.com/rebootuser/LinEnum                    |
 | Masscan         | Recon            | https://github.com/robertdavidgraham/masscan             |
 | Nmap            | Recon            | https://nmap.org/                                        |
 | pspy            | Recon            | https://github.com/DominicBreuker/pspy                   |
@@ -67,11 +71,16 @@ Currently, Shiva has only been tested against Ubuntu 18.04.
 | Cookie Monster  | Web              | https://github.com/DigitalInterruption/cookie-monster    |
 | Dirb            | Web              | http://dirb.sourceforge.net/                             |
 | Gobuster        | Web              | https://github.com/OJ/gobuster                           |
+| Magescan        | Web              | https://github.com/steverobbins/magescan                 |
 | Nikto           | Web              | https://cirt.net/Nikto2                                  |
+| Shocker         | Web              | https://github.com/nccgroup/shocker                      |
 | sqlmap          | Web              | http://sqlmap.org/                                       |
+| wafw00f         | Web              | https://github.com/EnableSecurity/wafw00f                |
+| WhatWeb         | Web              | https://github.com/urbanadventurer/WhatWeb               |
 | wfuzz           | Web              | https://github.com/xmendez/wfuzz                         |
 | WPScan          | Web              | https://wpscan.org/                                      |
 | WPXF            | Web              | https://github.com/rastating/wordpress-exploit-framework |
+
 
 Several directories can also be found which include pre-compiled binaries and files to aid with exploitation and post-exploitation:
 
