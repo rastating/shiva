@@ -1,0 +1,2 @@
+---
+- include: xortool.yml tags=crypto,xortool

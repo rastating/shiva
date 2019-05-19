@@ -1,0 +1,45 @@
+---
+- block:
+
+  - name: 'xortool : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/xortool
+      force: yes
+      repo: https://github.com/hellman/xortool.git
+
+  - name: 'xortool : remove existing venv'
+    file:
+      path: /opt/xortool/.venv
+      state: absent
+
+  - name: 'xortool : create venv directory'
+    file:
+      path: /opt/xortool.venv
+      state: directory
+
+  - name: 'xortool : initialise venv'
+    shell: 'bash -lc "virtualenv -p python2 /opt/xortool/.venv"'
+
+  - name: 'xortool : install docopt'
+    pip:
+      name: docopt
+      state: present
+      virtualenv: /opt/xortool/.venv
+
+  - name: 'xortool : run setup'
+    shell: 'bash -lc "source .venv/bin/activate && python setup.py install"'
+    args:
+      chdir: /opt/xortool
+
+  - name: 'xortool : install launcher'
+    copy:
+      dest: /usr/local/bin/xortool
+      mode: 0755
+      src: ../files/xortool.sh
+
+  tags:
+    - crypto
+    - xortool

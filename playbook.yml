@@ -5,6 +5,7 @@
   roles:
     - common
     - cracking
+    - crypto
     - services
     - exploitation
     - password-attacks
