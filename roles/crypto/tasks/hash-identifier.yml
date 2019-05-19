@@ -1,0 +1,12 @@
+---
+- block:
+  
+  - name: 'hash-identifier : install script'
+    copy:
+      dest: /usr/local/bin/hash-identifier
+      mode: 0755
+      src: ../files/Hash_ID.py
+  
+  tags:
+    - 'hash-identifier'
+    - 'crypto'

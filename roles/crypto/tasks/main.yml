@@ -1,2 +1,3 @@
 ---
+- include: hash-identifier.yml tags=crypto,hash-identifier
 - include: xortool.yml tags=crypto,xortool
