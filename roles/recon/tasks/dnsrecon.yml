@@ -17,8 +17,13 @@
 
   - name: 'dnsrecon : create venv directory'
     file:
-      path: /opt/dnsrecon.venv
+      path: /opt/dnsrecon/.venv
       state: directory
+
+  - name: 'dnsrecon : remove directory created in error previously'
+    file:
+      path: /opt/dnsrecon.venv
+      state: absent
 
   - name: 'dnsrecon : initialise venv'
     shell: 'bash -lc "virtualenv -p python2 /opt/dnsrecon/.venv"'
