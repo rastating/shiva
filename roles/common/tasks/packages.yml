@@ -8,6 +8,7 @@
   - name: 'packages : install common packages'
     apt:
       name:
+        - awscli
         - build-essential
         - curl
         - git

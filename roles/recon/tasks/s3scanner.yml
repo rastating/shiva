@@ -1,0 +1,40 @@
+---
+- block:
+
+  - name: 's3scanner : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/s3scanner
+      force: yes
+      repo: https://github.com/sa7mon/S3Scanner.git
+
+  - name: 's3scanner : remove existing venv'
+    file:
+      path: /opt/s3scanner/.venv
+      state: absent
+
+  - name: 's3scanner : create venv directory'
+    file:
+      path: /opt/s3scanner/.venv
+      state: directory
+
+  - name: 's3scanner : initialise venv'
+    shell: 'bash -lc "virtualenv -p python2 /opt/s3scanner/.venv"'
+
+  - name: 's3scanner : install requirements'
+    pip:
+      requirements: /opt/s3scanner/requirements.txt
+      state: present
+      virtualenv: /opt/s3scanner/.venv
+
+  - name: 's3scanner : install launcher'
+    template:
+      dest: /usr/local/bin/s3scanner
+      mode: 0755
+      src: ../templates/s3scanner.sh
+
+  tags:
+    - recon
+    - s3scanner
