@@ -8,7 +8,7 @@
       depth: 1
       dest: /opt/recon-ng
       force: yes
-      repo: https://LaNMaSteR53@bitbucket.org/LaNMaSteR53/recon-ng.git
+      repo: https://github.com/lanmaster53/recon-ng.git
 
   - name: 'recon-ng : remove existing venv'
     file:
