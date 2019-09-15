@@ -23,64 +23,66 @@ Currently, Shiva has only been tested against Ubuntu 18.04.
 
 ## What tools / packages are included?
 
-| Name            | Category         | Home Page                                                |
-|-----------------|------------------|----------------------------------------------------------|
-| binwalk         | Binary Analysis  | https://github.com/ReFirmLabs/binwalk                    |
-| GDB             | Binary Analysis  | https://www.gnu.org/software/gdb/                        |
-| nasm            | Binary Analysis  | https://www.nasm.us/                                     |
-| PEDA            | Binary Analysis  | https://github.com/longld/peda                           |
-| pwntools        | Binary Analysis  | https://github.com/Gallopsled/pwntools                   |
-| Radare2         | Binary Analysis  | https://rada.re/r/                                       |
-| Ropper          | Binary Analysis  | https://scoding.de/ropper/                               |
-| FCrackZip       | Cracking         | http://oldhome.schmorp.de/marc/fcrackzip.html            |
-| hashcat         | Cracking         | https://hashcat.net/hashcat/                             |
-| John The Ripper | Cracking         | https://www.openwall.com/john/                           |
-| Hash Identifier | Crypto           | https://code.google.com/archive/p/hash-identifier/       |
-| xortool         | Crypto           | https://github.com/hellman/xortool                       |
-| Go              | Environment      | https://golang.org/                                      |
-| Node.js         | Environment      | https://nodejs.org/en/                                   |
-| Oh My ZSH       | Environment      | https://github.com/robbyrussell/oh-my-zsh                |
-| Ruby            | Environment      | https://www.ruby-lang.org                                |
-| Empire          | Exploitation     | http://www.powershellempire.com/                         |
-| Metasploit      | Exploitation     | https://www.metasploit.com/                              |
-| PowerSploit     | Exploitation     | https://github.com/PowerShellMafia/PowerSploit           |
-| SearchSploit    | Exploitation     | https://www.exploit-db.com/                              |
-| SuperTTY        | Exploitation     | https://github.com/bad-hombres/supertty                  |
-| Hydra           | Password Attacks | https://github.com/vanhauser-thc/thc-hydra               |
-| Medusa          | Password Attacks | https://github.com/jmk-foofus/medusa                     |
-| Ncrack          | Password Attacks | https://nmap.org/ncrack/                                 |
-| SecLists        | Password Attacks | https://github.com/danielmiessler/SecLists               |
-| CrackMapExec    | Recon            | https://github.com/byt3bl33d3r/CrackMapExec              |
-| DNSRecon        | Recon            | https://github.com/darkoperator/dnsrecon                 |
-| LinEnum         | Recon            | https://github.com/rebootuser/LinEnum                    |
-| Masscan         | Recon            | https://github.com/robertdavidgraham/masscan             |
-| Nmap            | Recon            | https://nmap.org/                                        |
-| pspy            | Recon            | https://github.com/DominicBreuker/pspy                   |
-| Recon-ng        | Recon            | https://bitbucket.org/LaNMaSteR53/recon-ng/src           |
-| Responder       | Recon            | https://github.com/SpiderLabs/Responder                  |
-| Snmpcheck       | Recon            | http://www.nothink.org/codes/snmpcheck                   |
-| sslscan         | Recon            | https://github.com/rbsec/sslscan                         |
-| theHarvester    | Recon            | https://github.com/laramies/theHarvester                 |
-| tshark          | Recon            | https://www.wireshark.org/                               |
-| Apache          | Services         | https://httpd.apache.org/                                |
-| PostgreSQL      | Services         | https://www.postgresql.org/                              |
-| vsftpd          | Services         | https://security.appspot.com/vsftpd.html                 |
-| MS-SQL CLI      | Tools            | https://docs.microsoft.com/en-us/sql/tools/mssql-cli     |
-| OpenVPN         | Tools            | https://openvpn.net/                                     |
-| smbclient       | Tools            |                                                          |
-| Socat           | Tools            |                                                          |
-| Cookie Monster  | Web              | https://github.com/DigitalInterruption/cookie-monster    |
-| Dirb            | Web              | http://dirb.sourceforge.net/                             |
-| Gobuster        | Web              | https://github.com/OJ/gobuster                           |
-| Magescan        | Web              | https://github.com/steverobbins/magescan                 |
-| Nikto           | Web              | https://cirt.net/Nikto2                                  |
-| Shocker         | Web              | https://github.com/nccgroup/shocker                      |
-| sqlmap          | Web              | http://sqlmap.org/                                       |
-| wafw00f         | Web              | https://github.com/EnableSecurity/wafw00f                |
-| WhatWeb         | Web              | https://github.com/urbanadventurer/WhatWeb               |
-| wfuzz           | Web              | https://github.com/xmendez/wfuzz                         |
-| WPScan          | Web              | https://wpscan.org/                                      |
-| WPXF            | Web              | https://github.com/rastating/wordpress-exploit-framework |
+| Name                  | Category         | Home Page                                                |
+|-----------------------|------------------|----------------------------------------------------------|
+| binwalk               | Binary Analysis  | https://github.com/ReFirmLabs/binwalk                    |
+| GDB                   | Binary Analysis  | https://www.gnu.org/software/gdb/                        |
+| nasm                  | Binary Analysis  | https://www.nasm.us/                                     |
+| PEDA                  | Binary Analysis  | https://github.com/longld/peda                           |
+| pwntools              | Binary Analysis  | https://github.com/Gallopsled/pwntools                   |
+| Radare2               | Binary Analysis  | https://rada.re/r/                                       |
+| Ropper                | Binary Analysis  | https://scoding.de/ropper/                               |
+| FCrackZip             | Cracking         | http://oldhome.schmorp.de/marc/fcrackzip.html            |
+| hashcat               | Cracking         | https://hashcat.net/hashcat/                             |
+| John The Ripper       | Cracking         | https://www.openwall.com/john/                           |
+| Hash Identifier       | Crypto           | https://code.google.com/archive/p/hash-identifier/       |
+| xortool               | Crypto           | https://github.com/hellman/xortool                       |
+| Go                    | Environment      | https://golang.org/                                      |
+| Node.js               | Environment      | https://nodejs.org/en/                                   |
+| Oh My ZSH             | Environment      | https://github.com/robbyrussell/oh-my-zsh                |
+| Ruby                  | Environment      | https://www.ruby-lang.org                                |
+| Empire                | Exploitation     | http://www.powershellempire.com/                         |
+| Metasploit            | Exploitation     | https://www.metasploit.com/                              |
+| PowerSploit           | Exploitation     | https://github.com/PowerShellMafia/PowerSploit           |
+| SearchSploit          | Exploitation     | https://www.exploit-db.com/                              |
+| SuperTTY              | Exploitation     | https://github.com/bad-hombres/supertty                  |
+| Hydra                 | Password Attacks | https://github.com/vanhauser-thc/thc-hydra               |
+| Medusa                | Password Attacks | https://github.com/jmk-foofus/medusa                     |
+| Ncrack                | Password Attacks | https://nmap.org/ncrack/                                 |
+| SecLists              | Password Attacks | https://github.com/danielmiessler/SecLists               |
+| CrackMapExec          | Recon            | https://github.com/byt3bl33d3r/CrackMapExec              |
+| DNSRecon              | Recon            | https://github.com/darkoperator/dnsrecon                 |
+| HostileSubBruteforcer | Recon            | https://github.com/nahamsec/HostileSubBruteforcer        |
+| LinEnum               | Recon            | https://github.com/rebootuser/LinEnum                    |
+| Masscan               | Recon            | https://github.com/robertdavidgraham/masscan             |
+| Nmap                  | Recon            | https://nmap.org/                                        |
+| pspy                  | Recon            | https://github.com/DominicBreuker/pspy                   |
+| Recon-ng              | Recon            | https://bitbucket.org/LaNMaSteR53/recon-ng/src           |
+| Responder             | Recon            | https://github.com/SpiderLabs/Responder                  |
+| Snmpcheck             | Recon            | http://www.nothink.org/codes/snmpcheck                   |
+| sslscan               | Recon            | https://github.com/rbsec/sslscan                         |
+| S3Scanner             | Recon            | https://github.com/sa7mon/S3Scanner                      |
+| theHarvester          | Recon            | https://github.com/laramies/theHarvester                 |
+| tshark                | Recon            | https://www.wireshark.org/                               |
+| Apache                | Services         | https://httpd.apache.org/                                |
+| PostgreSQL            | Services         | https://www.postgresql.org/                              |
+| vsftpd                | Services         | https://security.appspot.com/vsftpd.html                 |
+| MS-SQL CLI            | Tools            | https://docs.microsoft.com/en-us/sql/tools/mssql-cli     |
+| OpenVPN               | Tools            | https://openvpn.net/                                     |
+| smbclient             | Tools            |                                                          |
+| Socat                 | Tools            |                                                          |
+| Cookie Monster        | Web              | https://github.com/DigitalInterruption/cookie-monster    |
+| Dirb                  | Web              | http://dirb.sourceforge.net/                             |
+| Gobuster              | Web              | https://github.com/OJ/gobuster                           |
+| Magescan              | Web              | https://github.com/steverobbins/magescan                 |
+| Nikto                 | Web              | https://cirt.net/Nikto2                                  |
+| Shocker               | Web              | https://github.com/nccgroup/shocker                      |
+| sqlmap                | Web              | http://sqlmap.org/                                       |
+| wafw00f               | Web              | https://github.com/EnableSecurity/wafw00f                |
+| WhatWeb               | Web              | https://github.com/urbanadventurer/WhatWeb               |
+| wfuzz                 | Web              | https://github.com/xmendez/wfuzz                         |
+| WPScan                | Web              | https://wpscan.org/                                      |
+| WPXF                  | Web              | https://github.com/rastating/wordpress-exploit-framework |
 
 
 Several directories can also be found which include pre-compiled binaries and files to aid with exploitation and post-exploitation:
