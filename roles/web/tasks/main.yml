@@ -1,6 +1,7 @@
 ---
 - include: cookie-monster.yml tags=web,cookie-monster
 - include: dirb.yml tags=web,dirb
+- include: eyewitness.yml tags=web,eyewitness
 - include: gobuster.yml tags=web,gobuster
 - include: magescan.yml tags=web,magescan
 - include: nikto.yml tags=web,nikto

@@ -1,0 +1,24 @@
+---
+- block:
+
+  - name: 'eyewitness : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/eyewitness
+      force: yes
+      repo: https://github.com/FortyNorthSecurity/EyeWitness.git
+
+  - name: 'eyewitness : install python dependencies'
+    command: 'bash -lc "/opt/eyewitness/setup/setup.sh"'
+
+  - name: 'eyewitness : install launcher'
+    template:
+      dest: /usr/local/bin/eyewitness
+      mode: 0755
+      src: ../templates/eyewitness.sh
+
+  tags:
+    - web
+    - eyewitness

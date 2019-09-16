@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://static.rastating.com/images/shiva-300px.png"><br />
-   <a href="https://www.patreon.com/rastating"><img src="https://img.shields.io/badge/patreon-support_this_project-orange" alt="Patreon" /></a>
+  <a href="https://www.patreon.com/rastating"><img src="https://img.shields.io/badge/patreon-support_this_project-orange" alt="Patreon" /></a>
 </p>
 
 ## What is Shiva?
@@ -73,6 +73,7 @@ Currently, Shiva has only been tested against Ubuntu 18.04.
 | Socat                 | Tools            |                                                          |
 | Cookie Monster        | Web              | https://github.com/DigitalInterruption/cookie-monster    |
 | Dirb                  | Web              | http://dirb.sourceforge.net/                             |
+| EyeWitness            | Web              | https://github.com/FortyNorthSecurity/EyeWitness         |
 | Gobuster              | Web              | https://github.com/OJ/gobuster                           |
 | Magescan              | Web              | https://github.com/steverobbins/magescan                 |
 | Nikto                 | Web              | https://cirt.net/Nikto2                                  |
