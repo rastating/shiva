@@ -30,6 +30,12 @@
       path: /tmp/masscan
       state: absent
 
+  - name: 'masscan : download dnmasscan'
+    get_url:
+      dest: /usr/local/bin/dnmasscan
+      mode: 0755
+      url: https://raw.githubusercontent.com/rastating/dnmasscan/master/dnmasscan
+
   tags:
     - recon
     - masscan
