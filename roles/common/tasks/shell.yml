@@ -60,6 +60,24 @@
       path: /root/.zshrc
       line: 'alias serve-this="python -m SimpleHTTPServer"'
 
+  - name: 'shell : add functions to parse dnsrecon and masscan output'
+    lineinfile:
+      path: /root/.zshrc
+      line: '{{ item }}'
+    with_items:
+      - >
+        function masscan_port_list {
+          grep -oP "Ports: [0-9]+" "$1" | cut -d " " -f 2 | sort -u | tr "\n" "," | sed 's/,$//'
+        }
+      - >
+        function masscan_ip_list {
+          grep -oP "([0-9]{2,3}\.){3}[0-9]{2,3}" "$1" | sort -u
+        }
+      - >
+        function extract_unique_domains_from_dnsrecon_json {
+          grep -oP "([^\"]+?$2\")" "$1" | sed 's/"//' | sort -f -u
+        }
+
   - name: 'shell : set default root shell'
     user:
       name: root
