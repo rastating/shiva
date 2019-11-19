@@ -1,0 +1,40 @@
+---
+- block:
+
+  - name: 'sherlock : clone repository'
+    git:
+      accept_hostkey: yes
+      clone: yes
+      depth: 1
+      dest: /opt/sherlock
+      force: yes
+      repo: https://github.com/sherlock-project/sherlock.git
+
+  - name: 'sherlock : remove existing venv'
+    file:
+      path: /opt/sherlock/.venv
+      state: absent
+
+  - name: 'sherlock : create venv directory'
+    file:
+      path: /opt/sherlock/.venv
+      state: directory
+
+  - name: 'sherlock : initialise venv'
+    shell: 'bash -lc "virtualenv -p python3 /opt/sherlock/.venv"'
+
+  - name: 'sherlock : install requirements'
+    pip:
+      requirements: /opt/sherlock/requirements.txt
+      state: present
+      virtualenv: /opt/sherlock/.venv
+
+  - name: 'sherlock : install launcher'
+    copy:
+      dest: /usr/local/bin/sherlock
+      mode: 0755
+      src: ../files/sherlock.sh
+
+  tags:
+    - recon
+    - sherlock
