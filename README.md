@@ -51,6 +51,7 @@ Currently, Shiva has only been tested against Ubuntu 18.04.
 | Ncrack                | Password Attacks | https://nmap.org/ncrack/                                 |
 | SecLists              | Password Attacks | https://github.com/danielmiessler/SecLists               |
 | CrackMapExec          | Recon            | https://github.com/byt3bl33d3r/CrackMapExec              |
+| dnmasscan             | Recon            | https://github.com/rastating/dnmasscan                   |
 | DNSRecon              | Recon            | https://github.com/darkoperator/dnsrecon                 |
 | HostileSubBruteforcer | Recon            | https://github.com/nahamsec/HostileSubBruteforcer        |
 | LinEnum               | Recon            | https://github.com/rebootuser/LinEnum                    |
