@@ -59,6 +59,7 @@ Currently, Shiva has only been tested against Ubuntu 18.04.
 | pspy                  | Recon            | https://github.com/DominicBreuker/pspy                   |
 | Recon-ng              | Recon            | https://bitbucket.org/LaNMaSteR53/recon-ng/src           |
 | Responder             | Recon            | https://github.com/SpiderLabs/Responder                  |
+| Sherlock              | Recon            | https://github.com/sherlock-project/sherlock             |
 | Snmpcheck             | Recon            | http://www.nothink.org/codes/snmpcheck                   |
 | sslscan               | Recon            | https://github.com/rbsec/sslscan                         |
 | S3Scanner             | Recon            | https://github.com/sa7mon/S3Scanner                      |
@@ -138,6 +139,17 @@ serve-this 9090
 An alias which will first start the `postgresql` service prior to launching the standard `msfconsole` binary; allowing for Metasploit to have access to the database.
 
 **Note: the `postgresql` service is not automatically stopped after `msfconsole` is stopped**
+
+### masscan_port_list
+Parse the output of masscan into a CSV of unique port numbers.
+
+### masscan_ip_list
+Parse the output of masscan to generate a list of unique IP addresses.
+
+### extract_unique_domains_from_dnsrecon_json
+Parse a JSON file created by `dnsrecon` to extract the unique domain names found.
+
+Example to extract all subdomains found that belong to `google.com`: `extract_unique_domains_from_dnsrecon_json /path/to/dnsrecon.json google.com`
 
 ## Roadmap
 There are three things I'd like to push with this going forward:
