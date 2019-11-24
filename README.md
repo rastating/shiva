@@ -1,6 +1,5 @@
 <p align="center">
-  <img src="https://static.rastating.com/images/shiva-300px.png"><br />
-  <a href="https://www.patreon.com/rastating"><img src="https://img.shields.io/badge/patreon-support_this_project-orange" alt="Patreon" /></a>
+  <img src="https://static.rastating.com/images/shiva-300px.png">
 </p>
 
 ## What is Shiva?
