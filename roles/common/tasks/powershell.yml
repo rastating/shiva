@@ -1,0 +1,13 @@
+---
+  - block:
+  
+    - name: 'powershell : install snap'
+      snap:
+        name: powershell
+        classic: yes
+        state: present
+    
+    tags:
+      - common
+      - powershell
+        
