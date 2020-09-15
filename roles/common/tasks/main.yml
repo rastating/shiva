@@ -6,3 +6,4 @@
 - include: ruby.yml tags=common,ruby
 - include: node.yml tags=common,node,cookie-monster
 - include: composer.yml tags=common,composer,magescan
+- include: powershell.yml tags=common,powershell
