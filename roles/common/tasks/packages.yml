@@ -13,6 +13,7 @@
         - curl
         - git
         - gnupg2
+        - jq
         - libcurl4-openssl-dev
         - nano
         - nmap
