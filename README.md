@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://static.rastating.com/images/shiva-300px.png">
+  <img src=".github/68747470733a2f2f7374617469632e726173746174696e672e636f6d2f696d616765732f73686976612d33303070782e706e67.png">
 </p>
 
 ## What is Shiva?
