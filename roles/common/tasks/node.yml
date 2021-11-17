@@ -1,19 +1,12 @@
 ---
 - block:
 
-  - name: 'node : download setup script'
-    get_url:
-      url: https://deb.nodesource.com/setup_10.x
-      dest: /tmp/node_setup.sh
-
-  - name: 'node : execute PPA setup script'
-    shell: bash /tmp/node_setup.sh
-
-  - name: 'node : install Node'
-    apt:
-      name: nodejs
-      state: present
-      update_cache: yes
+  - name: 'node : install LTS version with snap'
+    snap:
+      name: go
+      classic: yes
+# add the following if version 10.x is preferred to LTS
+      # channel: "10"
 
   - name: 'node : import Yarn APT key'
     apt_key:
@@ -31,11 +24,6 @@
     apt:
       name: yarn
       state: present
-
-  - name: 'node : cleanup temp files'
-    file:
-      path: /tmp/node_setup.sh
-      state: absent
 
   tags:
     - common
